@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EssentialTools.Models;
-using Ninject;
 
 namespace EssentialTools.Controllers
 {
@@ -19,7 +14,7 @@ namespace EssentialTools.Controllers
             new Product {Name = "Corner flag", Category = "Soccer", Price = 34.95M}
         };
 
-        public HomeController(IValueCalculator calcParam, IValueCalculator calc2)
+        public HomeController(IValueCalculator calcParam)
         {
             calc = calcParam;
         }
