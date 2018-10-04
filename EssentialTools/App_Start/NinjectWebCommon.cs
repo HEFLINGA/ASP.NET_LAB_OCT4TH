@@ -1,3 +1,5 @@
+using System.Web.Configuration;
+
 [assembly: WebActivator.PreApplicationStartMethod(typeof(EssentialTools.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(EssentialTools.App_Start.NinjectWebCommon), "Stop")]
 
@@ -53,6 +55,8 @@ namespace EssentialTools.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            System.Web.Mvc.DependencyResolver.SetResolver(
+                new EssentialTools.Infrastructure.NinjectDependancyResolver(kernel));
         }        
     }
 }
